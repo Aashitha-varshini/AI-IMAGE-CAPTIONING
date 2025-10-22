@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: <your-backend-image>
+        ports:
+        - containerPort: 8000
+        env:
+        - name: S3_BUCKET
+          value: your-s3-bucket
+        - name: DDB_TABLE
+          value: your-dynamodb-table
+        - name: ML_SERVICE_URL
+          value: http://ml-service:8000/caption
+        - name: SECRET_KEY
+          value: supersecretkey
+        resources:
+          requests:
+            cpu: "200m"
+            memory: "256Mi"
+          limits:
+            cpu: "1"
+            memory: "1Gi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+spec:
+  selector:
+    app: backend
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
