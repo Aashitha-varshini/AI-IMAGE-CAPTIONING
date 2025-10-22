@@ -1,2 +1,14 @@
-# AI-IMAGE-CAPTIONING
-The AI-Powered Educational Image Captioning App uses advanced deep learning models like BLIP and CLIP to automatically generate simple, educational captions for images uploaded by children. This helps young learners develop vocabulary, language skills, and visual literacy through interactive and gamified learning. 
+# ML Service (BLIP Model)
+
+This folder contains the BLIP model inference service for generating captions from images.
+
+## Features
+- REST API for image captioning
+- Optimized for short, kid-friendly captions
+- Dockerized for deployment
+
+## Getting Started
+- Install dependencies: `pip install -r requirements.txt`
+- Run server: `python app.py`
+
+See the main project README for more details.
