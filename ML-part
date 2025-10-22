@@ -1,0 +1,1 @@
+The ML component of the AI Captioning App is responsible for automatically generating textual captions or summaries from audio or video input. It uses a deep learning–based model that performs speech-to-text transcription followed by language refinement.
